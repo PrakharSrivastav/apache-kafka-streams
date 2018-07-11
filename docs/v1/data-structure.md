@@ -25,7 +25,7 @@ SETTLE_INVOICE :
         CustomerId: String
         AccountNumber: String
         Amount: Float
-        Action: String
+        Status: String
 NOTIFICATION:
     BankService --> CustomerService, InvocieService
     
