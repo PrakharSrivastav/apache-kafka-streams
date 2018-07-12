@@ -16,7 +16,13 @@ import org.slf4j.LoggerFactory;
 import java.util.Properties;
 import java.util.UUID;
 
-public class InvoiceProducer {
+
+/**
+ * This is the master component that triggers the simulation process
+ * The InvoiceProducer creates a new Invoice every minute and sends it to CustomerService
+ *
+ */
+public final class InvoiceProducer {
 
     private static Headers headers = null;
     private static Boolean initializeApp = true;

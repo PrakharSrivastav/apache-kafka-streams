@@ -1,4 +1,4 @@
-package model.bank;
+package model.notification;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.common.serialization.Deserializer;
@@ -6,21 +6,21 @@ import org.apache.kafka.common.serialization.Deserializer;
 import java.io.IOException;
 import java.util.Map;
 
-public class PaymentDeserializer implements Deserializer<Payment> {
+public class NotificationDeserializer implements Deserializer<Notification> {
     @Override
-    public void configure(Map<String, ?> configs, boolean isKey) {}
+    public void configure(Map<String, ?> configs, boolean isKey) {  }
 
     @Override
-    public Payment deserialize(String topic, byte[] data) {
+    public Notification deserialize(String topic, byte[] data) {
         if (data == null) return null;
         final ObjectMapper om = new ObjectMapper();
-        Payment payment = null;
+        Notification n = null;
         try {
-            payment = om.readValue(data, Payment.class);
+            n = om.readValue(data, Notification.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return payment;
+        return n;
     }
 
     @Override

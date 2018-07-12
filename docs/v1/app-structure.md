@@ -13,17 +13,18 @@ InvoiceService (Consumer)
     - Reads from NOTIFICATION topic
     - Accepts message using headers
     - Changes the status of the invoice to processed
-
+CusotmerService (Consuming from NOTIFICATION)
+    - KafkaStream
+    - Reads from NOTIFICATION topic
+    - Changes the status in the CustomerService   
+    
 CustomerService (Consumer from NEW_INVOICE)
     - KafkaStream
     - Reads message from NEW_INVOICE topic
     - Transforms Invoice to Payment format
     - Sends to SETTLE_INVOICE topic
     
-CusotmerService (Consuming from NOTIFICATION)
-    - KafkaStream
-    - Reads from NOTIFICATION topic
-    - Changes the status in the CustomerService    
+ 
     
 BankingService
     - KafkaStream

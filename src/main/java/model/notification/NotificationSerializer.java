@@ -1,4 +1,4 @@
-package model.bank;
+package model.notification;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -6,14 +6,12 @@ import org.apache.kafka.common.serialization.Serializer;
 
 import java.util.Map;
 
-public class PaymentSerializer implements Serializer<Payment> {
+public class NotificationSerializer implements Serializer<Notification> {
     @Override
-    public void configure(Map<String, ?> configs, boolean isKey) {
-
-    }
+    public void configure(Map<String, ?> configs, boolean isKey) {}
 
     @Override
-    public byte[] serialize(String topic, Payment data) {
+    public byte[] serialize(String topic, Notification data) {
         byte[] bytes = null;
         final ObjectMapper om = new ObjectMapper();
         try {
@@ -25,7 +23,5 @@ public class PaymentSerializer implements Serializer<Payment> {
     }
 
     @Override
-    public void close() {
-
-    }
+    public void close() {}
 }

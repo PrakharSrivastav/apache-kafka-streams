@@ -12,6 +12,9 @@ public class Invoice {
     private String status;
     private Float amount;
 
+    public Invoice() {
+    }
+
     public Invoice(String id, String customerId, String status, Float amount) {
         this.id = id;
         this.customerId = customerId;

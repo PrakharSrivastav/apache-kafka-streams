@@ -1,6 +1,9 @@
 package model.bank;
 
+import model.notification.Notification;
+
 import java.util.Objects;
+import java.util.Random;
 
 public final class Payment {
 
@@ -8,6 +11,8 @@ public final class Payment {
     private String invoiceId;
     private String status;
     private Float amount;
+
+    public Payment() {}
 
     public Payment(String customerId, String invoiceId, String status, Float amount) {
         this.customerId = customerId;
@@ -20,6 +25,10 @@ public final class Payment {
     public String getInvoiceId() { return invoiceId; }
     public String getStatus() { return status; }
     public Float getAmount() { return amount; }
+
+    public Notification mapToNotification() {
+        return new Notification(this.getInvoiceId(), this.getCustomerId(), new Random().nextBoolean() == true ? "PAID" : "FAILED", this.getAmount());
+    }
 
     @Override
     public boolean equals(Object o) {
